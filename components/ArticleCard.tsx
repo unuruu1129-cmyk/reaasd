@@ -21,11 +21,11 @@ export const ArticleCard = (props: ArticleCard) => {
         <div className=" absolute top-[202px] text-[#FFFFFF] font-light left-4 text-xs">1 min read</div>
       </div>
       <div className="w-full h-1/2 flex flex-col px-6 ">
-        <div className>
-          <span>The future of cities is greener than you think</span>
-          <span>From rooftop gardens to car-free streets, a quieter urban revolution is taking root.</span>
+        <div className="flex flex-col justify-center mt-6">
+          <span className="text-xl font-bold">The future of cities is greener than you think</span>
+          <span className="text-sm text-[#57534E] font-light mt-3">From rooftop gardens to car-free streets, a quieter urban revolution is taking root.</span>
         </div>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center mt-11 pt-4 border-t-1 border-[#E2E2DA]">
           <div className="flex h-10 w-10 justify-center items-center rounded-full bg-[#ECFDF5] text-xs text-[#065F46] font-bold ">AM</div>
           <div>
             <span>Alex Morgan</span>
