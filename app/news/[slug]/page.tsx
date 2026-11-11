@@ -47,7 +47,9 @@ const ArticleDetailPage = async ({ params }: ArticleDetailPageType) => {
       <div>
         <div>
           <div>━━ THE STORY</div>
-          <div>{foundArticle.content}</div>
+          <div>{foundArticle?.content.map((paragraph)=>(
+            <p>{paragraph}</p>
+          ))}</div>
         </div>
       </div>
     </div>
