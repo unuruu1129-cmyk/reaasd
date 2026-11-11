@@ -1,4 +1,5 @@
 import { Clock4, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 type ArticleCard = {
   id: number;
   slug: string;
@@ -20,7 +21,10 @@ export const ArticleCard = (props: ArticleCard) => {
     .join("");
 
   return (
-    <div className="max-w-94 w-full rounded-3xl border border-[#E7E5E4] overflow-hidden bg-[#FFFFFF] group transition-all duration-300 hover:-translate-y-0.5 hover:border-orange-500 hover:shadow-xl ">
+    <Link
+      href={`/news/${slug}`}
+      className="max-w-94 w-full rounded-3xl border border-[#E7E5E4] overflow-hidden bg-[#FFFFFF] group transition-all duration-300 hover:-translate-y-0.5 hover:border-orange-500 hover:shadow-xl "
+    >
       <div className="relative w-full h-58.75">
         <img src={image} alt={imageAlt} className="h-full w-full relative object-cover transition-transform duration-300 group-hover:scale-105 " />
         <h5 className="absolute top-4 left-4 bg-[#ECFDF5] text-[10px] font-bold text-[#065F46] rounded-2xl px-3 py-1.5">{category}</h5>
@@ -44,6 +48,6 @@ export const ArticleCard = (props: ArticleCard) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };

@@ -12,7 +12,7 @@ const Home = () => {
         <p className="hidden md:flex text-xs text-[#65675F] ">Big ideas. Fresh voices. Worth your time.</p>
       </header>
       <div className="wrap-normal border-y border-[#E2E2DA] mt-6 py-3 text-xs text-[#65675F]">
-        <button type="button" className="cursor-pointer px-3 py-2.5 rounded-xl hover:bg-black hover:text-white transition-colors duration-300">
+        <button type="button" className="cursor-pointer px-3 py-2.5 rounded-l hover:bg-black hover:text-white transition-colors duration-300">
           All stories
         </button>
         <button type="button" className="cursor-pointer px-3 py-2.5 rounded-xl hover:bg-black hover:text-white transition-colors duration-300">
@@ -55,13 +55,6 @@ const Home = () => {
           />
         ))}
       </div>
-      <footer>
-        <div>
-          <p>the daily ▧</p>
-          <p>A fresh perspective. Every day.</p>
-        </div>
-        <div>Back to top ↑</div>
-      </footer>
     </div>
   );
 };
