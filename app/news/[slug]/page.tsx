@@ -14,11 +14,11 @@ const ArticleDetailPage = async ({ params }: ArticleDetailPageType) => {
     <div>
       <header className="py-6 ">
         <div>← All stories</div>
-        <div>/ {foundArticle.category}</div>
+        <div>/ {foundArticle?.category}</div>
       </header>
       <div>
         <div>
-          <div>{foundArticle.category}</div>
+          <div>{foundArticle?.category}</div>
           <div>— THE DAILY</div>
         </div>
         <div>The future of cities is greener than you think</div>
@@ -39,7 +39,7 @@ const ArticleDetailPage = async ({ params }: ArticleDetailPageType) => {
           </div>
         </div>
       </div>
-      <img src={foundArticle.image} />
+      <img src={foundArticle?.image} />
       <div>
         <p>Modern architecture surrounded by greenery</p>
         <p>Illustrative photography · Unsplash</p>
@@ -47,9 +47,11 @@ const ArticleDetailPage = async ({ params }: ArticleDetailPageType) => {
       <div>
         <div>
           <div>━━ THE STORY</div>
-          <div>{foundArticle?.content.map((paragraph)=>(
-            <p>{paragraph}</p>
-          ))}</div>
+          <div>
+            {foundArticle?.content.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
         </div>
       </div>
     </div>
