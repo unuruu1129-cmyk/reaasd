@@ -1,18 +1,41 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import data from "@/data/news.json";
+import type { Metadata } from "next";
+import articles from "@/data/news.json";
+import { ArticleCard } from "@/components/ArticleCard";
+
 type ArticleDetailPageType = { params: Promise<{ slug: string }> };
+type Props = { params: Promise<{ slug: string }> };
 
 export const instant = false;
 export const generateStaticParams = () => {
   return data.map((article) => ({ slug: article.slug }));
 };
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const article = articles.find((article) => article.slug === slug);
+  if (!article) notFound();
+  return {
+    title: article.title,
+    description: article.description,
+    openGraph: {
+      type: "article",
+      siteName: "The Daily",
+      title: article.title,
+      description: article.description,
+      images: [{ url: article.image, alt: article.imageAlt }],
+    },
+  };
+}
+
 const ArticleDetailPage = async ({ params }: ArticleDetailPageType) => {
   const { slug } = await params;
   const foundArticle = data.find((article) => article.slug === slug);
 
   if (!foundArticle) notFound();
+  const related = articles.filter((element) => foundArticle.category === element.category && foundArticle.id !== element.id);
 
   const initials = foundArticle.author
     .split(" ")
@@ -20,7 +43,7 @@ const ArticleDetailPage = async ({ params }: ArticleDetailPageType) => {
     .join("");
   return (
     <div id="main" className="max-w-7xl w-full mx-auto px-5 md:px-8 bg-[#FAF9F6]">
-      <header className="py-6 flex flex-row justify-between w-34.75 text-xs">
+      <header className="py-6 flex flex-row text-xs">
         <Link href="/" className="font-bold">
           ← All stories
         </Link>
@@ -78,6 +101,17 @@ const ArticleDetailPage = async ({ params }: ArticleDetailPageType) => {
           <Link href="/" className="my-6 md:my-[30.5px] mx-6 text-xs py-2.5 px-3 max-w-24.5 w-fit rounded-2xl text-[#FFFFFF] bg-black hover:bg-orange-500  ">
             All stories ↗
           </Link>
+        </div>
+        <div className="w-full border-y border-[#E2E2DA] ">
+          <div className="text-[10px] text-[#C44724] font-bold mb-2">KEEP YOUR CURIOSITY GOING</div>
+          <div className="text-3xl font-bold mb-7">More to discover.</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div>
+              {related.map((foundArticle) => (
+                <ArticleCard key={foundArticle.id} {...foundArticle} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
