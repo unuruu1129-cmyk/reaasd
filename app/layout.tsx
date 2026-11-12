@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,17 +20,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth`}>
       <body className="min-h-full flex flex-col">
         {children}
         <footer className="max-w-7xl w-full h-28.25 mx-auto px-5 md:px-8 flex flex-row justify-between items-center mt-16 border-t border-[#E2E2DA] ">
           <div>
             <p className="flex flex-row text-3xl ">
-              the daily <p className="text-">▧</p>
+              the daily <span className="">▧</span>
             </p>
             <p className="text-[#65675F] text-xs  ">A fresh perspective. Every day.</p>
           </div>
-          <div className="text-xs text-[#22241F] ">Back to top ↑</div>
+          <Link href="#main" className="text-xs text-[#22241F] ">
+            Back to top ↑
+          </Link>
         </footer>
       </body>
     </html>

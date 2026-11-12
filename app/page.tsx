@@ -3,7 +3,7 @@ import data from "@/data/news.json";
 
 const Home = () => {
   return (
-    <div className="max-w-7xl w-full mx-auto px-5 md:px-8">
+    <div id="main" className="max-w-7xl w-full mx-auto px-5 md:px-8">
       <header className="w-full pt-10 flex flex-row justify-between items-end ">
         <div>
           <h6 className="text-[10px] text-[#C44724] font-bold ">Stay curious</h6>

@@ -14,7 +14,7 @@ type ArticleCard = {
 };
 
 export const ArticleCard = (props: ArticleCard) => {
-  const { title, description, content, author, date, image, id, slug, imageAlt, category } = props;
+  const { title, description, author, date, image, slug, imageAlt, category } = props;
   const initials = author
     .split(" ")
     .map((items) => items[0])
