@@ -14,7 +14,7 @@ export const generateMetadata: Metadata = {
 
 const Home = () => {
   return (
-    <div id="main" className="max-w-7xl w-full mx-auto px-5 md:px-8">
+    <div id="main" className="max-w-7xl w-full pb-16 mx-auto px-5 md:px-8 bg-[#FAF9F6]">
       <header className="w-full pt-10 flex flex-row justify-between items-end ">
         <div>
           <h6 className="text-[10px] text-[#C44724] font-bold ">Stay curious</h6>
@@ -23,7 +23,7 @@ const Home = () => {
         <p className="hidden md:flex text-xs text-[#65675F] ">Big ideas. Fresh voices. Worth your time.</p>
       </header>
       <div className="wrap-normal border-y border-[#E2E2DA] mt-6 py-3 text-xs text-[#65675F]">
-        <button type="button" className="cursor-pointer px-3 py-2.5 rounded-l hover:bg-black hover:text-white transition-colors duration-300">
+        <button type="button" className="cursor-pointer px-3 py-2.5 rounded-xl hover:bg-black hover:text-white transition-colors duration-300">
           All stories
         </button>
         <button type="button" className="cursor-pointer px-3 py-2.5 rounded-xl hover:bg-black hover:text-white transition-colors duration-300">

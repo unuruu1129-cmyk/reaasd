@@ -15,7 +15,7 @@ export const generateStaticParams = () => {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const article = articles.find((article) => article.slug === slug);
+  const article = data.find((article) => article.slug === slug);
   if (!article) notFound();
   return {
     title: article.title,
@@ -47,8 +47,8 @@ const ArticleDetailPage = async ({ params }: ArticleDetailPageType) => {
         <Link href="/" className="font-bold">
           ← All stories
         </Link>
-        <div className="text-[#65675F]">/</div>
-        <div className="text-[#65675F]">{foundArticle?.category}</div>
+        <div className="text-[#65675F] pl-3">/</div>
+        <div className="text-[#65675F] pl-3">{foundArticle?.category}</div>
       </header>
       <div className="w-full flex flex-col lg:px-20">
         <div className="flex flex-row w-37.75 items-center mt-[41.5px] md:mt-[61.5px] lg:mt-14">
@@ -102,15 +102,13 @@ const ArticleDetailPage = async ({ params }: ArticleDetailPageType) => {
             All stories ↗
           </Link>
         </div>
-        <div className="w-full border-y border-[#E2E2DA] ">
+        <div className="w-full border-t border-[#E2E2DA] pb-16 pt-10 ">
           <div className="text-[10px] text-[#C44724] font-bold mb-2">KEEP YOUR CURIOSITY GOING</div>
           <div className="text-3xl font-bold mb-7">More to discover.</div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <div>
-              {related.map((foundArticle) => (
-                <ArticleCard key={foundArticle.id} {...foundArticle} />
-              ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7.25">
+            {related.map((foundArticle) => (
+              <ArticleCard key={foundArticle.id} {...foundArticle} />
+            ))}
           </div>
         </div>
       </div>

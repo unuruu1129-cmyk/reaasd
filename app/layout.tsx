@@ -23,10 +23,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth`}>
       <body className="min-h-full flex flex-col">
         {children}
-        <footer className="max-w-7xl w-full h-28.25 mx-auto px-5 md:px-8 flex flex-row justify-between items-center mt-16 border-t border-[#E2E2DA] ">
+        <footer className="max-w-7xl w-full h-28.25 mx-auto px-5 md:px-8 flex flex-row justify-between items-center border-t border-[#E2E2DA] bg-[#FAF9F6] ">
           <div>
-            <p className="flex flex-row text-3xl ">
-              the daily <span className="">▧</span>
+            <p className="flex flex-row text-3xl font-bold ">
+              the daily <span className="pl-2">▧</span>
             </p>
             <p className="text-[#65675F] text-xs  ">A fresh perspective. Every day.</p>
           </div>
