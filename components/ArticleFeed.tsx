@@ -14,7 +14,7 @@ export const ArticleFeed = () => {
   };
 
   const filtered = data.filter((article) => category === "All stories" || article.category === category);
-
+  const storyCount = filtered.length;
   return (
     <div id="main" className="max-w-7xl w-full pb-16 mx-auto px-5 md:px-8 bg-[#FAF9F6]">
       <header className="w-full pt-10 flex flex-row justify-between items-end ">
@@ -31,7 +31,7 @@ export const ArticleFeed = () => {
           </button>
         ))}
       </div>
-      <div className="text-xs text-[#65675F] py-5 ">20 stories to explore</div>
+      <div className="text-xs text-[#65675F] py-5 ">{category === "All stories" ? `${storyCount} stories to explore` : `${storyCount} stories in ${category}`}</div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
         {filtered.map((article) => (
           <ArticleCard
