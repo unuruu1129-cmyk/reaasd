@@ -4,6 +4,7 @@ import data from "@/data/news.json";
 import type { Metadata } from "next";
 import articles from "@/data/news.json";
 import { ArticleCard } from "@/components/ArticleCard";
+import { categoryColors } from "@/lib/category-colors";
 
 type ArticleDetailPageType = { params: Promise<{ slug: string }> };
 type Props = { params: Promise<{ slug: string }> };
@@ -35,6 +36,7 @@ const ArticleDetailPage = async ({ params }: ArticleDetailPageType) => {
   const foundArticle = data.find((article) => article.slug === slug);
 
   if (!foundArticle) notFound();
+  const categoryColor = categoryColors[foundArticle.category];
   const related = articles.filter((element) => foundArticle.category === element.category && foundArticle.id !== element.id);
 
   const initials = foundArticle.author
@@ -52,13 +54,13 @@ const ArticleDetailPage = async ({ params }: ArticleDetailPageType) => {
       </header>
       <div className="w-full flex flex-col lg:px-20">
         <div className="flex flex-row items-center mt-[41.5px] md:mt-[61.5px] lg:mt-14">
-          <div className="bg-[#ECFDF5] py-1.5 px-3 rounded-xl text-[10px] text-[#065F46] font-bold">{foundArticle?.category}</div>
+          <div className={`bg-[#ECFDF5] border py-1.5 px-3 rounded-xl text-[10px] text-[#065F46] font-bold ${categoryColor}`}>{foundArticle?.category}</div>
           <div className="text-[11px] pl-3">— THE DAILY</div>
         </div>
         <div className="text-4xl md:text-5xl lg:text-6xl font-bold mt-5">{foundArticle?.title}</div>
         <div className="text-lg md:text-xl text-[#57534E] my-5">{foundArticle?.description}</div>
         <div className="flex flex-row pt-5 mb-8 lg:mb-10 border-t border-[#E2E2DA]">
-          <div className="p-3 rounded-full bg-[#ECFDF5] text-[#065F46] mr-3.5 font-bold text-sm ">{initials}</div>
+          <div className={`p-3 rounded-full bg-[#ECFDF5] text-[#065F46] border mr-3.5 font-bold text-sm ${categoryColor}`}>{initials}</div>
           <div className="max-w-37.5 w-full">
             <div className="text-[10px] text-[#65675F] font-bold">WRITTEN BY</div>
             <div className="text-sm font-bold mt-1">{foundArticle?.author}</div>
