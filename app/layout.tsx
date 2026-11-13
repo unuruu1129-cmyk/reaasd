@@ -26,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <footer className="max-w-7xl w-full h-28.25 mx-auto px-5 md:px-8 flex flex-row justify-between items-center border-t border-[#E2E2DA] bg-[#FAF9F6] ">
           <div>
             <p className="flex flex-row text-3xl font-bold ">
-              the daily <span className="pl-2">▧</span>
+              the daily <span className="pl-2 text-red-500">▧</span>
             </p>
             <p className="text-[#65675F] text-xs  ">A fresh perspective. Every day.</p>
           </div>
