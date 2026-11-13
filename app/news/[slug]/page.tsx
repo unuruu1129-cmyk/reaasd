@@ -51,7 +51,7 @@ const ArticleDetailPage = async ({ params }: ArticleDetailPageType) => {
         <div className="text-[#65675F] pl-3">{foundArticle?.category}</div>
       </header>
       <div className="w-full flex flex-col lg:px-20">
-        <div className="flex flex-row w-37.75 items-center mt-[41.5px] md:mt-[61.5px] lg:mt-14">
+        <div className="flex flex-row items-center mt-[41.5px] md:mt-[61.5px] lg:mt-14">
           <div className="bg-[#ECFDF5] py-1.5 px-3 rounded-xl text-[10px] text-[#065F46] font-bold">{foundArticle?.category}</div>
           <div className="text-[11px] pl-3">— THE DAILY</div>
         </div>
